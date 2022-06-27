@@ -6,7 +6,8 @@ export const styledNavbar = {
         alignItems: "center",
         position: "fixed",
         backgroundColor: "#fff",
-        width: "100%"
+        width: "100%",
+        zIndex: '999',
     },
     container: {
         width: "85%",

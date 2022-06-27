@@ -4,19 +4,26 @@ import aboutUsImg from "../../assets/imgs/IMG_8771.jpg";
 import shopImg from "../../assets/imgs/IMG_8777.jpg";
 import blogImg from "../../assets/imgs/IMG_8727.jpg";
 import { styledHome } from "./styles";
-import { aboutUsTextShort } from "../../components/consts/aboutUsText";
+import {
+    aboutUsTextShort,
+    aboutUsText,
+} from "../../components/consts/aboutUsText";
 import { shopText } from "../../components/consts/shopText";
 import { blogText } from "../../components/consts/blogText";
 import CommonButton from "../../components/CommonButton/CommonButton";
 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { navbarItems } from "../../components/consts/navbarItems";
 
 export default function Home() {
     const navigate = useNavigate();
 
+    const [aboutUs, setAboutUs] = useState(false);
+
     return (
         <>
+            <div id="overlay"></div>
             <Box sx={styledHome.logoBox}>
                 <img style={styledHome.logoImg} src={mainLogo} alt="" />
             </Box>
@@ -27,13 +34,13 @@ export default function Home() {
                         quem somos
                     </Typography>
                     <Typography sx={styledHome.p} paragraph>
-                        {aboutUsTextShort}
+                        {aboutUs ? aboutUsText : aboutUsTextShort}
                     </Typography>
                     <CommonButton
                         sx={styledHome.buttons}
-                        onClick={() => navigate(navbarItems[1].path)}
+                        onClick={() => setAboutUs(!aboutUs)}
                     >
-                        ler mais
+                        {aboutUs ? "ler menos" : "ler mais"}
                     </CommonButton>
                 </Box>
             </Box>
@@ -46,7 +53,7 @@ export default function Home() {
                         </Typography>
                         <CommonButton
                             sx={styledHome.buttons2}
-                            onClick={() => navigate(navbarItems[2].path)}
+                            onClick={() => navigate(navbarItems[1].path)}
                         >
                             loja
                         </CommonButton>
@@ -64,7 +71,7 @@ export default function Home() {
                     </Typography>
                     <CommonButton
                         sx={styledHome.buttons}
-                        onClick={() => navigate(navbarItems[4].path)}
+                        onClick={() => navigate(navbarItems[3].path)}
                     >
                         ler blog
                     </CommonButton>

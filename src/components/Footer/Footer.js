@@ -1,48 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import instagram from "../../assets/imgs/Instagram.png";
+import facebook from "../../assets/imgs/Facebook.png";
+import mbway from "../../assets/imgs/MBWay.png";
+import multibanco from "../../assets/imgs/multibanco-e1599554768413.png";
+
+import "../../assets/css/style.css";
 
 export default function Footer() {
     return (
-        <Box>
+        <Box id="footer" className="footer light-pink">
             <Box className="container">
                 <Box className="footer-left">
-                    <Link to="#" className="tandc-btn">
+                    <Link to="/" className="tandc-btn">
                         termos e condições
                     </Link>
                 </Box>
                 <Box className="footer-center">
-                    <Link
-                        to="https://www.instagram.com"
+                    <a
+                        href="https://www.instagram.com/"
                         target="_blank"
-                        rel="noopener nonreferrer"
                         className="sm-link"
+                        rel="noreferrer"
                     >
-                        <img
-                            src="./imgs/Instagram.png"
-                            alt="instagram"
-                            id="instagram"
-                        />
-                    </Link>
-                    <Link
-                        to="https://www.facebook.com/Secret-energy-candle-104733131745775"
+                        <img src={instagram} alt="instagram" id="instagram" />
+                    </a>
+                    <a
+                        href="https://www.facebook.com/"
                         target="_blank"
-                        rel="noopener nonreferrer"
                         className="sm-link"
+                        rel="noreferrer"
                     >
-                        <img
-                            src="./imgs/Facebook.png"
-                            alt="facebook"
-                            id="facebook"
-                        />
-                    </Link>
+                        <img src={facebook} alt="facebook" id="facebook" />
+                    </a>
                 </Box>
                 <Box className="footer-right">
-                    <p className="payment-footer">métodos de pagamento</p>
+                    <Typography paragraph className="payment-footer">
+                        métodos de pagamento
+                    </Typography>
                     <Box className="payment-logos">
-                        <img src="./imgs/MBWay.png" alt="mbway" id="mbway" />
+                        <img src={mbway} alt="mbway" id="mbway" />
                         <img
-                            src="./imgs/multibanco-e1599554768413.png"
+                            src={multibanco}
                             alt="multibanco"
                             id="multibanco"
                         />
