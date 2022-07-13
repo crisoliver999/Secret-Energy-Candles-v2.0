@@ -11,6 +11,8 @@ export default function Blog() {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
 
+    const increaseCount = () => setPage(page + 1);
+    const decreaseCount = () => setPage(page - 1);
     return (
         <>
             <Box id="overlay"></Box>
@@ -49,13 +51,13 @@ export default function Blog() {
                 ))}
             </Box>
             <Box id="blog-nav">
-                <CommonButton sx={"backgroundColor: none, "}>
+                <CommonButton onClick={decreaseCount} disabled={page===1 ? true : false}>
                     <span className="chevron left"></span>
                 </CommonButton>
                 <Typography paragraph id="page-nav">
                     {page}
                 </Typography>
-                <CommonButton>
+                <CommonButton onClick={increaseCount}>
                     <span className="chevron right"></span>
                 </CommonButton>
             </Box>
